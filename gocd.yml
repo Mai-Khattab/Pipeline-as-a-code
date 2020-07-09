@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  "pipelineas acode":
+  "pipelineasacode":
     group: gocd
     materials:
       git:
