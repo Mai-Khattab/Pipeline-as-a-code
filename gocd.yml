@@ -15,7 +15,7 @@ pipelines:
              tasks:
               - excec:
                  run_if: passed
-                 command :/bin/sh
+                 command: /bin/sh
                  argumnets: 
                  - ./scripts/commit/build.sh
                  
