@@ -7,7 +7,7 @@ pipelines:
     display_order: -1
     materials:
       git:
-        git: https://github.com/SoaadMahmoud/
+        git: https://github.com/SoaadMahmoud/Pipeline-as-a-code
         username: soad
         shallow_clone: false
         auto_update: true
