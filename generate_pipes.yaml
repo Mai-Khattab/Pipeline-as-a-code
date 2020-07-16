@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - vars.yml
+  tasks:
+  - name: ansible template secret
+    debug:
+      msg: "{{ item.0.name }} {{ item.1.name }}"
+    with_subelements:
+      - "{{ templates }}"
+      - pipelines
+    loop_control:
+      label: "{{ item.1.name }}"
+  - name: ansible template secret
+    template:
+      src: "{{ item.0.template }}"
+      dest: "{{ item.1.name }}.gocd.yaml"
+    with_subelements:
+      - "{{ templates }}"
+      - pipelines
+    loop_control:
+      label: "{{ item.1.name }}"
+

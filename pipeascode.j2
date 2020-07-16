@@ -1,0 +1,33 @@
+format_version: 9
+pipelines:
+ {{ item.1.name }}:
+    group: {{ item.1.group }}
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git:
+        git: https://{{ item.1.giturl }}
+        username: {{ item.1.githubuser }}
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        encrypted_password: {{ item.1.githubpassword }}
+    stages:
+    - installapache:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          installapache:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - httpd.yml
+                command: ansible-playbook
+                run_if: passed
+

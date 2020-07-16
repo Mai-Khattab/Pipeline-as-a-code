@@ -1,0 +1,10 @@
+---
+templates:
+  - name: apache
+    template: pipeascode.j2
+    pipelines:
+      - name: apache-pipelineasacode
+        group: VF-CDAAS.CDAAS.STAGE
+        githubuser: soad
+        githubpassword: 12345
+        giturl: github.com/SoaadMahmoud/

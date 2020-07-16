@@ -1,0 +1,33 @@
+format_version: 9
+pipelines:
+ apache-pipelineasacode:
+    group: VF-CDAAS.CDAAS.STAGE
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git:
+        git: https://github.com/SoaadMahmoud/
+        username: soad
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        encrypted_password: 12345
+    stages:
+    - installapache:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          installapache:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - httpd.yml
+                command: ansible-playbook
+                run_if: passed
+
