@@ -1,10 +1,10 @@
 ---
 templates:
-  - name: apache
+  - name: php
     template: pipeascode.j2
     pipelines:
-      - name: apache-pipelineasacode
-        group: VF-CDAAS.CDAAS.STAGE
+      - name: php-pipelineasacode
+        group: VF-CDAAS.CDAAS.STAGE2
         githubuser: soad
         githubpassword: 12345
-        giturl: github.com/SoaadMahmoud/
+        giturl: github.com/SoaadMahmoud/php
